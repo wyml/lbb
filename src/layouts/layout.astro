@@ -1,0 +1,25 @@
+---
+import Nav from "../components/Nav.astro";
+import Author from "../components/Author.astro";
+---
+
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+
+    <script src="https://kit.fontawesome.com/5b73f12eae.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <Nav />
+
+    <div class="container mx-auto flex flex-col md:flex-row gap-5">
+        <Author />
+        <slot />
+    </div>
+    
+  </body>
+</html>

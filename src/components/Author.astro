@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+
+const author = {
+  nickname: "Jaibin Lan",
+  avatar: "https://q1.qlogo.cn/g?b=qq&nk=1143524493&s=640",
+};
+---
+
+<div
+  class="flex flex-col text-white gap-4 rounded m-2 box-border items-center justify-center md:w-1/4 bg-blue-200 p-4"
+>
+  <Image
+    src={author.avatar}
+    alt="avatar"
+    width="120"
+    height={120}
+    class:list={"rounded-full"}
+  />
+
+  <div class="text-3xl">{author.nickname}</div>
+
+  <div class="text-xl flex gap-6">
+    <a target="_blank" href="https://github.com/wyml"><i class="fa-brands fa-github"></i></a>
+    <a target="_blank" href="https://x.com/jiabin_lan"><i class="fa-brands fa-twitter"></i></a>
+    <a target="_blank" href="https://www.weibo.com/u/2621448527"><i class="fa-brands fa-weibo"></i></a>
+  </div>
+</div>
