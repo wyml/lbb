@@ -1,0 +1,31 @@
+---
+import Layout from "./layout.astro";
+import Comment from "../components/Comment.astro";
+import "animate.css";
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+  <div class="w-full">
+    <header class="mb-4">
+      <h1 class="text-xl md:text-5xl text-red-500 font-medium">
+        {frontmatter.title}
+      </h1>
+      <div class="text-sm mt-2 font-light text-slate-500 space-x-4">
+        <span>Wirte By:{frontmatter.author}</span>
+        <span>Pub Date:{frontmatter.pubDate.toString().slice(0, 10)}</span>
+      </div>
+    </header>
+
+    <div
+      class="p-8 animate__animated animate__fadeInDown shadow w-full rounded-xl space-y-10 bg-red-50 dark:bg-gray-900"
+    >
+      <main class="text-base leading-relaxed space-y-4">
+        <slot />
+      </main>
+      <footer class="border-t border-gray-100">
+        <Comment />
+      </footer>
+    </div>
+  </div>
+</Layout>

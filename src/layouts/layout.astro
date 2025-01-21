@@ -1,6 +1,7 @@
 ---
 import Nav from "../components/Nav.astro";
 import Author from "../components/Author.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="zh-cn">
@@ -11,15 +12,37 @@ import Author from "../components/Author.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
 
-    <script src="https://kit.fontawesome.com/5b73f12eae.js" crossorigin="anonymous"></script>
+    <style>
+      body {
+        background-size: 20px 20px;
+        background-position: center center;
+        background-image: radial-gradient(circle, #cbd5e1 1px, #fff 1px);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-image: radial-gradient(circle, #2d3748 1px, #1a202c 1px);
+        }
+      }
+    </style>
   </head>
-  <body>
+
+  <body class="p-4 h-full w-full dark:bg-gray-800 dark:text-gray-100 relative pb-4">
     <Nav />
 
-    <div class="container mx-auto flex flex-col md:flex-row gap-5">
-        <Author />
-        <slot />
+    <div class="container mx-auto flex items-start md:flex-row gap-x-4 my-4">
+      <Author />
+      <slot />
     </div>
-    
+
+    <Footer />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>

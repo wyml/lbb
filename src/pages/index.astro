@@ -1,9 +1,24 @@
 ---
 import Layout from "../layouts/layout.astro";
+import PostCard from "../components/PostCard.astro";
+const posts = Object.values(import.meta.glob("./posts/*.md", { eager: true }))
+  .sort(
+    (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)
+  );
 ---
 
 <Layout>
-  <div>
-	让我们说中文
+  <div class="w-full space-y-4">
+    {
+      posts.map((post) => (
+        <PostCard
+          title={post.frontmatter.title}
+          content={post.rawContent()}
+          pubDate={post.frontmatter.pubDate}
+          author={post.frontmatter.author}
+          url={post.url}
+        />
+      ))
+    }
   </div>
 </Layout>

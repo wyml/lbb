@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
+const posts = Object.values(import.meta.glob("../pages/posts/*.md", { eager: true }));
+
 const author = {
   nickname: "Jaibin Lan",
   avatar: "https://q1.qlogo.cn/g?b=qq&nk=1143524493&s=640",
@@ -8,21 +10,49 @@ const author = {
 ---
 
 <div
-  class="flex flex-col text-white gap-4 rounded m-2 box-border items-center justify-center md:w-1/4 bg-blue-200 p-4"
+  class="animate__animated animate__fadeInDown relative w-full md:w-2/5 bg-white shadow dark:text-white rounded-xl dark:bg-gray-900 dark:text-white"
 >
-  <Image
-    src={author.avatar}
-    alt="avatar"
-    width="120"
-    height={120}
-    class:list={"rounded-full"}
-  />
+  <div
+    class="rounded-b-3xl bg-red-300 dark:bg-red-300/80 min-h-48 w-full flex justify-center items-center flex-col text-white py-4 gap-y-4"
+  >
+    <Image
+      src={author.avatar}
+      alt="avatar"
+      width="120"
+      height={120}
+      class:list={"rounded-full"}
+    />
 
-  <div class="text-3xl">{author.nickname}</div>
+    <div class="text-3xl">{author.nickname}</div>
 
-  <div class="text-xl flex gap-6">
-    <a target="_blank" href="https://github.com/wyml"><i class="fa-brands fa-github"></i></a>
-    <a target="_blank" href="https://x.com/jiabin_lan"><i class="fa-brands fa-twitter"></i></a>
-    <a target="_blank" href="https://www.weibo.com/u/2621448527"><i class="fa-brands fa-weibo"></i></a>
+    <div>欲买桂花同载酒，终不似，少年游</div>
+
+    <div class="text-xl flex gap-6">
+      <a target="_blank" href="https://github.com/wyml"
+        ><ion-icon name="logo-github"></ion-icon></a
+      >
+      <a target="_blank" href="https://x.com/jiabin_lan"
+        ><ion-icon name="logo-twitter"></ion-icon></a
+      >
+      <a target="_blank" href="https://www.weibo.com/u/2621448527"
+        ><ion-icon name="logo-rss"></ion-icon></a
+      >
+    </div>
+  </div>
+  <div
+    class="grid-cols-3 grid font-light text-black mx-auto w-full text-center text-xl my-4 dark:text-white"
+  >
+    <div>
+      <div>{posts.length}</div>
+      <div>文章</div>
+    </div>
+    <div class="border-l border-r">
+      <div>1200</div>
+      <div>评论</div>
+    </div>
+    <div>
+      <div>10</div>
+      <div>标签</div>
+    </div>
   </div>
 </div>

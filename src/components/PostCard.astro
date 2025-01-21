@@ -1,0 +1,43 @@
+---
+import "animate.css";
+const { title, pubDate, url, content,author } = Astro.props;
+---
+
+<div
+  class="animate__animated animate__fadeInDown flex flex-none w-full box-border bg-white shadow hover:shadow-md min-h-72 rounded-xl dark:bg-gray-900 dark:text-white"
+>
+  <img
+    class="flex-none rounded-l-xl w-1/3"
+    src="https://picsum.photos/seed/picsum/1600/900"
+    alt="cover"
+  />
+
+  <article class="p-8 space-y-6 flex flex-col justify-between">
+    <div class="space-y-4">
+      <h1 class="text-3xl font-semibold text-red-400">
+        <a href={url}>{title}</a>
+      </h1>
+
+      <main class="line-clamp-3 text-gray-500">
+        {content}
+      </main>
+
+      <div class="text-right text-sm">
+        <a href={url} class="p-2 text-gray-400 hover:text-red-400">READ MORE</a>
+      </div>
+    </div>
+
+    <footer
+      class="w-full text-sm text-gray-400 font-light flex items-center justify-end gap-x-4"
+    >
+      <div class="flex items-center gap-x-2">
+        <ion-icon name="time-outline"></ion-icon>
+        {pubDate.toString().slice(0, 10)}
+      </div>
+      /
+      <div class="flex items-center gap-x-2">
+        <ion-icon name="person-circle-outline"></ion-icon> {author}
+      </div>
+    </footer>
+  </article>
+</div>

@@ -3,19 +3,23 @@
 ---
 
 <header
-  class="w-full h-12 md:h-16 bg-gray-100 dark:bg-gray-900 dark:text-gray-200 flex items-center justify-between px-4 md:px-8"
+  class="w-full h-12 rounded-xl shadow hover:shadow-lg md:h-16 bg-white dark:bg-gray-900 dark:text-gray-200 flex items-center justify-between px-4 md:px-8"
 >
-  <div class="fkex items-center justify-center text-xl md:text-2xl">
-    LandonBlue's Blog
+  <div class="container mx-auto flex items-center justify-between">
+    <div
+      class="fkex items-center justify-center text-xl text-red-500 md:text-2xl"
+    >
+      <a href="/">LandonBlue's Blog</a>
+    </div>
+
+    <ul class="list-none flex items-center justify-around gap-4 text-gray-500">
+      <li class="hover:text-red-400">
+        <a href="/">Home</a>
+      </li>
+
+      <li class="hover:text-red-400">
+        <a href="/">About</a>
+      </li>
+    </ul>
   </div>
-
-  <ul class="list-none flex items-center justify-around gap-4">
-    <li>
-      <a href="/">Home</a>
-    </li>
-
-    <li>
-      <a href="/">About</a>
-    </li>
-  </ul>
 </header>
